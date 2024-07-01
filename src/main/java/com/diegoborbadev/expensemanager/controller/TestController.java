@@ -1,4 +1,4 @@
-package com.diegoborbadev.expensemanager.controllers;
+package com.diegoborbadev.expensemanager.controller;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
