@@ -9,5 +9,4 @@ class ExpenseManagerApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
