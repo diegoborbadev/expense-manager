@@ -35,6 +35,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+#Intelij
+.idea/
+
 # Package Files #
 *.jar
 *.war
