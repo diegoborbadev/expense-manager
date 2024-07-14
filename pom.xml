@@ -60,6 +60,13 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!-- Springdoc OpenAPI UI (Swagger) -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
         <!-- JDBC driver for PostgreSQL Database -->
         <dependency>
             <groupId>org.postgresql</groupId>
