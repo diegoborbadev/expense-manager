@@ -2,7 +2,6 @@ package com.diegoborbadev.expensemanager.controller;
 
 import com.diegoborbadev.expensemanager.model.BaseModel;
 import com.diegoborbadev.expensemanager.service.CrudService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -21,12 +20,8 @@ import java.util.Optional;
 
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public abstract class BaseController<S extends CrudService<T, Long>, DTO, T extends BaseModel<Long>> {
-
     @Autowired
     protected ModelMapper modelMapper;
-
-    @Autowired
-    protected ObjectMapper objectMapper;
 
     @Autowired
     protected S service;
