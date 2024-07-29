@@ -2,7 +2,6 @@ package com.diegoborbadev.expensemanager.controller;
 
 import com.diegoborbadev.expensemanager.model.BaseModel;
 import com.diegoborbadev.expensemanager.service.CrudService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -24,9 +23,6 @@ public abstract class BaseController<S extends CrudService<T, Long>, DTO, T exte
 
     @Autowired
     protected ModelMapper modelMapper;
-
-    @Autowired
-    protected ObjectMapper objectMapper;
 
     @Autowired
     protected S service;
@@ -80,7 +76,7 @@ public abstract class BaseController<S extends CrudService<T, Long>, DTO, T exte
     public ResponseEntity<DTO> updateElement(@PathVariable(value = "id") Long elementId, @Valid @RequestBody DTO element) {
         T converted = convertToModel(element);
         Optional<T> elementUpdated = service.updateElement(elementId, converted);
-        return elementUpdated.map(t -> ResponseEntity.status(HttpStatus.CREATED).body(convertToDetailDto(t))).orElseGet(() -> ResponseEntity.badRequest().build());
+        return elementUpdated.map(t -> ResponseEntity.ok(convertToDetailDto(t))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @Operation(summary = "Delete a element")
@@ -90,7 +86,7 @@ public abstract class BaseController<S extends CrudService<T, Long>, DTO, T exte
         if (success) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.notFound().build();
     }
 
     protected abstract List<DTO> convertToListDto(List<T> elements);

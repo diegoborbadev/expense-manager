@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-public class CrudServiceJpaImpl<L extends JpaRepository<T, ID>, T extends BaseModel<ID>, ID> implements CrudService<T, ID> {
+public abstract class CrudServiceJpaImpl<L extends JpaRepository<T, ID>, T extends BaseModel<ID>, ID> implements CrudService<T, ID> {
 
     @Autowired
     protected L repository;
